@@ -1,0 +1,5 @@
+---
+roles:
+  - name: ansible-thoteam.nexus3-oss
+    src: https://github.com/thiagoalessio/ansible-role-nexus3-oss.git
+    version: master
