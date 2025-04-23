@@ -1,7 +1,23 @@
-# nexus-playbook.yml
 ---
-- name: Install Nexus via Role
-  hosts: nexus_servers
+- name: Install Nexus Repository
+  hosts: all
   become: true
+
   roles:
-    - role: ansible-thoteam.nexus3-oss
+    - role: ansible-ThoTeam.nexus3-oss
+
+  vars:
+    nexus_version: "3.68.1-01"
+    nexus_admin_password: "MyStrongPassword"
+    nexus_blob_stores:
+      - name: default
+        type: File
+        path: default
+    nexus_repositories:
+      - name: "maven-public"
+        type: "maven"
+        recipe: "maven2"
+        online: true
+        storage:
+          blob_store_name: "default"
+          strict_content_type_validation: false
