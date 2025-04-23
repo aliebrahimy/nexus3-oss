@@ -1,0 +1,7 @@
+# nexus-playbook.yml
+---
+- name: Install Nexus via Role
+  hosts: nexus_servers
+  become: true
+  roles:
+    - role: ansible-thoteam.nexus3-oss
