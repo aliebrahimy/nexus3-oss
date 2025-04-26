@@ -3,15 +3,8 @@
   hosts: all
   become: true
 
-  tasks:
-    - name: Install community.general collection
-      ansible.builtin.ansible_galaxy:
-        name: community.general
-        state: present
-
-    - name: Install Nexus Repository
-      include_role:
-        name: roles/nexus3-oss
+  roles:
+    - role: roles/nexus3-oss
 
   vars:
     nexus_version: "3.79.1-04"
