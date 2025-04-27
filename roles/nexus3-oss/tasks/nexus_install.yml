@@ -324,7 +324,7 @@
 
 - name: Set nexus user
   ansible.builtin.lineinfile:
-    dest: "{{ nexus_installation_dir }}/nexus-latest/bin/nexus.rc"
+    dest: "{{ nexus_installation_dir }}/nexus-latest/bin/nexus"
     regexp: .*run_as_user=.*
     line: run_as_user="{{ nexus_os_user }}"
   notify:
